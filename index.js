@@ -30,14 +30,13 @@ let flightRecorder = [];
 let visitor = {
 
     // You must define both `getEdgeWeight` and `compareEdgeWeights` visitor callback functions
-    // as a set in order to enable edge-weighted BFT or DFT (the feature is identical for DFT as
-    // with this BFT example).
+    // to enable edge-weighted BFT or DFT (the feature is identical for DFT).
 
     // request = { e: { u: string, v: string }, g: digraph }
     // Iff request.e.u === undefined ==> request.e.v is a member of the traversal's starting vertex set
     getEdgeWeight: function(request_) {
-        // Here we return the vertiex ID of the edge head (aka edge sink vertex).
-        // You can return any type of value you want to here to define your edge "weight".
+        // You can return any type of value you want to represent your edge "weights".
+        // Here we return the vertiex ID of the edge head (aka edge sink vertex) that's always a string.
         return request_.e.v;
     },
 
@@ -48,6 +47,11 @@ let visitor = {
     // If result > 0 then the edge with weight value a should move after the edge with weight value a
     // If result === 0 then leave the edges in their current sort positions
     compareEdgeWeights: function(request_) {
+        // So override default traversal behavior and sort the start vertex set and
+        // all out edge sets. Here we're using each edge's head vertex ID as its weight.
+        // So sorting on this criteria forces BFT to evaluate edges using lexigraphic ordering
+        // vs. the default that follows insertion order (but is not guarateed).
+        // Return zero (0) to defeat the sort and see the default traversal for comparison.
         return ((request_.a > request_.b)?1:(request_.a < request_.b)?-1:0);
     },
 
