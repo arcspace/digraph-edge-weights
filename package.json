@@ -1,0 +1,13 @@
+{
+  "name": "digraph-edge-weights",
+  "version": "1.0.0",
+  "description": "Demo of @encapsule/arccore v0.1.9 \"crescent\" updates to support edge-weighted breadth and depth-first traversals.",
+  "main": "index.js",
+  "repository": "git@github.com:arcspace/digraph-edge-weights.git",
+  "author": "Chris Russell <cdr@encapsule.io>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@encapsule/arccore": "https://github.com/encapsule/arccore#v0.1.9-crescent"
+  }
+}
