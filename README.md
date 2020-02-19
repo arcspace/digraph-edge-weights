@@ -66,78 +66,272 @@ The traversal returned some summary information about what it did. Here's the JS
 ================================================================
 While executing our BFT, our visitor logged several traversal events.
 Here's the JSON "flight recorder data":
-[
-    {
-        "event": "startVertex",
-        "vertex": "apple"
-    },
-    {
-        "event": "startVertex",
-        "vertex": "cherry"
-    },
-    {
-        "event": "startVertex",
-        "vertex": "mango"
-    },
-    {
-        "event": "startVertex",
-        "vertex": "orange"
-    },
-    {
-        "event": "startVertex",
-        "vertex": "pineapple"
-    },
-    {
-        "event": "startVertex",
-        "vertex": "tangerine"
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "apple"
-    },
-    {
-        "event": "examineEdge",
-        "edge": {
-            "u": "cherry",
-            "v": "blueberry"
+{
+    "flightRecorder": [
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "apple"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "orange"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "apple",
+                "b": "orange"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "orange"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "pineapple"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "orange",
+                "b": "pineapple"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "pineapple"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "cherry"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "pineapple",
+                "b": "cherry"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "orange"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "cherry"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "orange",
+                "b": "cherry"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "apple"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "cherry"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "apple",
+                "b": "cherry"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "pineapple"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "mango"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "pineapple",
+                "b": "mango"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "orange"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "mango"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "orange",
+                "b": "mango"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "cherry"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "mango"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "cherry",
+                "b": "mango"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "pineapple"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "v": "tangerine"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "pineapple",
+                "b": "tangerine"
+            }
+        },
+        {
+            "event": "startVertex",
+            "vertex": "apple"
+        },
+        {
+            "event": "startVertex",
+            "vertex": "cherry"
+        },
+        {
+            "event": "startVertex",
+            "vertex": "mango"
+        },
+        {
+            "event": "startVertex",
+            "vertex": "orange"
+        },
+        {
+            "event": "startVertex",
+            "vertex": "pineapple"
+        },
+        {
+            "event": "startVertex",
+            "vertex": "tangerine"
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "apple"
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "u": "cherry",
+                "v": "pear"
+            }
+        },
+        {
+            "event": "getEdgeWeight",
+            "edge": {
+                "u": "cherry",
+                "v": "blueberry"
+            }
+        },
+        {
+            "event": "compareEdgeWeights",
+            "values": {
+                "a": "pear",
+                "b": "blueberry"
+            }
+        },
+        {
+            "event": "examineEdge",
+            "edge": {
+                "u": "cherry",
+                "v": "blueberry"
+            }
+        },
+        {
+            "event": "examineEdge",
+            "edge": {
+                "u": "cherry",
+                "v": "pear"
+            }
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "cherry"
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "mango"
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "orange"
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "pineapple"
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "tangerine"
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "blueberry"
+        },
+        {
+            "event": "finishVertex",
+            "vertex": "pear"
         }
-    },
-    {
-        "event": "examineEdge",
-        "edge": {
-            "u": "cherry",
-            "v": "pear"
-        }
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "cherry"
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "mango"
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "orange"
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "pineapple"
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "tangerine"
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "blueberry"
-    },
-    {
-        "event": "finishVertex",
-        "vertex": "pear"
-    }
-]
+    ]
+}
 
 ```
 

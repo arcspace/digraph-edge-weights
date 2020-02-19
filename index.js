@@ -25,7 +25,15 @@ if (response.error) {
 
 let digraph = response.result;
 
-let flightRecorder = [];
+
+// @encapsule/arccore v0.1.9 "crescent" also now supports a developer-defined
+// context structure you can pass through to all your visitor methods.
+// i.e. If you specify a custom `context` it will be passed through to each
+// visitor callback via your visitor function's `request.context` input-parameter.
+
+const context = {
+    flightRecorder: []
+};
 
 let visitor = {
 
@@ -37,6 +45,7 @@ let visitor = {
     getEdgeWeight: function(request_) {
         // You can return any type of value you want to represent your edge "weights".
         // Here we return the vertiex ID of the edge head (aka edge sink vertex) that's always a string.
+        request_.context.flightRecorder.push({ event: "getEdgeWeight", edge: { u: request_.e.u, v: request_.e.v } });
         return request_.e.v;
     },
 
@@ -52,32 +61,30 @@ let visitor = {
         // So sorting on this criteria forces BFT to evaluate edges using lexigraphic ordering
         // vs. the default that follows insertion order (but is not guarateed).
         // Return zero (0) to defeat the sort and see the default traversal for comparison.
+        request_.context.flightRecorder.push({ event: "compareEdgeWeights", values: { a: request_.a, b: request_.b } });
         return ((request_.a > request_.b)?1:(request_.a < request_.b)?-1:0);
     },
 
     // Record the traversal flight path...
 
     startVertex: function(request_) {
-        flightRecorder.push({ event: "startVertex", vertex: request_.u });
+        request_.context.flightRecorder.push({ event: "startVertex", vertex: request_.u });
         return true; // continue traversal
     },
 
     examineEdge: function(request_) {
-        flightRecorder.push({ event: "examineEdge", edge: request_.e });
+        request_.context.flightRecorder.push({ event: "examineEdge", edge: request_.e });
         return true; // continue traversal
     },
 
     finishVertex: function(request_) {
-        flightRecorder.push({ event: "finishVertex", vertex: request_.u });
+        request_.context.flightRecorder.push({ event: "finishVertex", vertex: request_.u });
         return true; // continue traversal
     }
 
 };
 
-response = arccore.graph.directed.breadthFirstTraverse({
-    digraph: digraph,
-    visitor: visitor
-});
+response = arccore.graph.directed.breadthFirstTraverse({ context, digraph, visitor });
 
 console.log("================================================================");
 console.log("Here's the DirectedGraph we're using in this example serialized to JSON:");
@@ -91,7 +98,7 @@ console.log(JSON.stringify(response, undefined, 4));
 console.log("================================================================");
 console.log("While executing our BFT, our visitor logged several traversal events.");
 console.log("Here's the JSON \"flight recorder data\":");
-console.log(JSON.stringify(flightRecorder, undefined, 4));
+console.log(JSON.stringify(context, undefined, 4));
 
 
 
