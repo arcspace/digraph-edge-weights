@@ -2,6 +2,7 @@
 # yarn lockfile v1
 
 
-"@encapsule/arccore@https://github.com/encapsule/arccore#v0.1.9-crescent":
+"@encapsule/arccore@^0.1.9":
   version "0.1.9"
-  resolved "https://github.com/encapsule/arccore#a84c4033640cc0c995325b523d71350379ddb6d0"
+  resolved "https://registry.yarnpkg.com/@encapsule/arccore/-/arccore-0.1.9.tgz#a79689ac13a330d6a003955f0b8c8e2c650a51ee"
+  integrity sha512-uVv/0qK0Jw71jbj2O+9HqCHVEpQhA9xtxmiVzxsGcjR77KCE2sVza/SgLVEf/ANWVXXawCUI2eJ1B0Hejy8a3Q==

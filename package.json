@@ -8,6 +8,6 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@encapsule/arccore": "https://github.com/encapsule/arccore#v0.1.9-crescent"
+    "@encapsule/arccore": "^0.1.9"
   }
 }
