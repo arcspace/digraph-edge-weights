@@ -93,7 +93,7 @@ Here's the JSON "flight recorder data":
     },
     {
         "event": "finishVertex",
-        "request": "apple"
+        "vertex": "apple"
     },
     {
         "event": "examineEdge",
@@ -111,31 +111,31 @@ Here's the JSON "flight recorder data":
     },
     {
         "event": "finishVertex",
-        "request": "cherry"
+        "vertex": "cherry"
     },
     {
         "event": "finishVertex",
-        "request": "mango"
+        "vertex": "mango"
     },
     {
         "event": "finishVertex",
-        "request": "orange"
+        "vertex": "orange"
     },
     {
         "event": "finishVertex",
-        "request": "pineapple"
+        "vertex": "pineapple"
     },
     {
         "event": "finishVertex",
-        "request": "tangerine"
+        "vertex": "tangerine"
     },
     {
         "event": "finishVertex",
-        "request": "blueberry"
+        "vertex": "blueberry"
     },
     {
         "event": "finishVertex",
-        "request": "pear"
+        "vertex": "pear"
     }
 ]
 

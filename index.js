@@ -64,7 +64,7 @@ let visitor = {
     },
 
     finishVertex: function(request_) {
-        flightRecorder.push({ event: "finishVertex", request: request_.u });
+        flightRecorder.push({ event: "finishVertex", vertex: request_.u });
         return true; // continue traversal
     }
 
